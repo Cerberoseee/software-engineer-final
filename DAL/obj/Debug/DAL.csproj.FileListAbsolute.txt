@@ -1,0 +1,11 @@
+E:\Learning\SoftwareEngineer\SE_Final\DAL\bin\Debug\DAL.dll
+E:\Learning\SoftwareEngineer\SE_Final\DAL\bin\Debug\DAL.pdb
+E:\Learning\SoftwareEngineer\SE_Final\DAL\bin\Debug\DTU.dll
+E:\Learning\SoftwareEngineer\SE_Final\DAL\bin\Debug\DTU.pdb
+E:\Learning\SoftwareEngineer\SE_Final\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+E:\Learning\SoftwareEngineer\SE_Final\DAL\obj\Debug\DAL.Properties.Resources.resources
+E:\Learning\SoftwareEngineer\SE_Final\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+E:\Learning\SoftwareEngineer\SE_Final\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\Learning\SoftwareEngineer\SE_Final\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\Learning\SoftwareEngineer\SE_Final\DAL\obj\Debug\DAL.dll
+E:\Learning\SoftwareEngineer\SE_Final\DAL\obj\Debug\DAL.pdb

@@ -1,0 +1,8 @@
+E:\Learning\SoftwareEngineer\SE_Final\DTU\bin\Debug\DTU.dll
+E:\Learning\SoftwareEngineer\SE_Final\DTU\bin\Debug\DTU.pdb
+E:\Learning\SoftwareEngineer\SE_Final\DTU\obj\Debug\DTO.csproj.AssemblyReference.cache
+E:\Learning\SoftwareEngineer\SE_Final\DTU\obj\Debug\DTU.Properties.Resources.resources
+E:\Learning\SoftwareEngineer\SE_Final\DTU\obj\Debug\DTO.csproj.GenerateResource.cache
+E:\Learning\SoftwareEngineer\SE_Final\DTU\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+E:\Learning\SoftwareEngineer\SE_Final\DTU\obj\Debug\DTU.dll
+E:\Learning\SoftwareEngineer\SE_Final\DTU\obj\Debug\DTU.pdb
