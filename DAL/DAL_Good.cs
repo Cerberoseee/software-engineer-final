@@ -18,12 +18,28 @@ namespace DAL
 
         public void addQuery()
         {
-            string sql = "insert into Good values (" +
-                "'" + g._GOODID + "', " +
-                "'" + g._GOODNAME + "', " +
-                " " + g._QUANTITY + ", " +
-                " " + g._PRICE + " " +
-                ")";
+            DataTable dt = this.selectQuery();
+
+            DataRow[] rows = dt.Select("GoodID = '" + g._GOODID + "'");
+            string sql;
+            if (rows.Length != 0)
+            {
+                sql = "update Good set " +
+                "GoodName = '" + g._GOODNAME + "', " +
+                "Quantity = " + (Int32.Parse(rows[0]["Quantity"].ToString()) + g._QUANTITY) + ", " +
+                "Price = " + g._PRICE + " " +
+                "where GoodID = '" + g._GOODID + "'";
+            } else
+            {
+               sql = "insert into Good values (" +
+                   "'" + g._GOODID + "', " +
+                   "'" + g._GOODNAME + "', " +
+                   " " + g._QUANTITY + ", " +
+                   " " + g._PRICE + " " +
+                   ")";
+            }
+
+           
             Connection.actionQuery(sql);
         }
 

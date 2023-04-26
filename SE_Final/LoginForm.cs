@@ -51,7 +51,6 @@ namespace SE_Final
 
             string expression = "Username = '" + txtBoxUser.Text.ToString() + "'";
             DataRow[] users = tb.Select(expression);
-            Debug.WriteLine(expression);
 
             if (users.Length == 0 || users == null)
             {

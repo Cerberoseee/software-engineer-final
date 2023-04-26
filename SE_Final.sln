@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "SE_Final\GUI.csproj", "{79ABBA3E-8097-43D3-9B8E-0CFA87876C39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI (Winform)", "SE_Final\GUI (Winform).csproj", "{79ABBA3E-8097-43D3-9B8E-0CFA87876C39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{CFA42F3F-AB06-4717-AB3F-13568558363B}"
 EndProject

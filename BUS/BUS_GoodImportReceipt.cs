@@ -32,6 +32,11 @@ namespace BUS
             gir.removeQuery();
         }
 
+        public DataTable detailQuery()
+        {
+            return gir.detailQuery();
+        }
+
         public DataTable selectQuery()
         {
             return gir.selectQuery();
