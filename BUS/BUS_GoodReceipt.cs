@@ -22,14 +22,20 @@ namespace BUS
             gr.addQuery();
         }
 
-        public void updateQuere()
+        public void updateQuery()
         {
             gr.updateQuery();
         }
 
+
         public void deleteQuery()
         {
             gr.removeQuery();
+        }
+
+        public DataTable detailQuery()
+        {
+            return gr.detailQuery();
         }
 
         public DataTable selectQuery()

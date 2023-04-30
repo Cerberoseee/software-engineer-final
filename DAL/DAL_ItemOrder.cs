@@ -35,7 +35,7 @@ namespace DAL
                 "ResellerID = '" + io._RESELLERID + "', " +
                 "OrderStatus = '" + io._ORDERSTATUS + "', " +
                 "PaymentMethod = '" + io._PAYMENTMETHOD + "', " +
-                "CreateDate = '" + io._CREATEDATE.ToString("yyyy/MM/dd") + "' " +
+                "CreatedDate = '" + io._CREATEDATE.ToString("yyyy/MM/dd") + "' " +
                 "where OrderID = '" + io._ORDERID + "'";
             Connection.actionQuery(sql);
         }

@@ -16,8 +16,10 @@ namespace SE_Final
     {
         private DataTable tbGood;
         private DataTable tbRecord;
+        private DataTable tbReseller;
 
-        private Boolean isAdded = false;
+        private Boolean isAddedGood = false;
+        private Boolean isAddedRecord = false;
 
         private string employeeID;
         public ApplicationForm(string empID)
@@ -73,7 +75,14 @@ namespace SE_Final
             BUS_GoodImportReceipt gir = new BUS_GoodImportReceipt("", DateTime.Now, "");
 
             DataTable tb = gir.selectQuery();
-            return DateTime.Now.ToString("yyyyMMdd") + tb.Rows.Count.ToString().PadLeft(4, '0');
+            return DateTime.Now.ToString("yyyyMMdd") + (tb.Rows.Count + 1).ToString().PadLeft(4, '0');
+        }
+
+        private string generateResellerID()
+        {
+            BUS_Reseller res = new BUS_Reseller("", "", "", "", "");
+            DataTable tb = res.selectQuery();
+            return (tb.Rows.Count + 1).ToString().PadLeft(4, '0');
         }
 
         private void updateGIRGoodGrd()
@@ -86,15 +95,26 @@ namespace SE_Final
             grdGIRRecord.DataSource = tbRecord;
         }
 
+        private void updateResellerGrd()
+        {
+            grdReseller.DataSource = tbReseller;
+            grdReseller.Columns["Password"].Visible = false;
+        }
+
         private void ApplicationForm_Load(object sender, EventArgs e)
         {
             disableGIRTxt();
             txtGIRReceiptID.ReadOnly = true;
             txtGIREmpID.ReadOnly = true;
+            txtResellerID.ReadOnly = true;
+
+            txtResellerID.Text = generateResellerID();
 
             disableGIRBtn();
             btnCreateRecord.Enabled = true;
             KeyPreview = true;
+
+            btnResellerDelete.Enabled = false;
 
             BUS_Good good = new BUS_Good("", "", 0, 0);
             tbGood = good.selectQuery();
@@ -103,8 +123,12 @@ namespace SE_Final
             BUS_GoodImportReceipt gir = new BUS_GoodImportReceipt("", DateTime.Now, "");
             tbRecord = gir.selectQuery();
 
+            BUS_Reseller res = new BUS_Reseller("", "", "", "", "");
+            tbReseller = res.selectQuery();
+
             updateGIRGoodGrd();
             updateGIRRecordGrd();
+            updateResellerGrd();
         }
 
         private void btnCreateRecord_Click(object sender, EventArgs e)
@@ -113,6 +137,8 @@ namespace SE_Final
             txtGIRReceiptID.Text = generateRecordID();
             txtGIREmpID.Text = employeeID;
             dpGIRImport.Enabled = true;
+            btnSaveRecord.Enabled = true;
+            tbGood.Rows.Clear();
         }
 
         private void btnAddGood_Click(object sender, EventArgs e)
@@ -122,7 +148,7 @@ namespace SE_Final
             txtGIRGoodPrice.Text = "";
             numGIRQuantity.Value = 0;
             enableGIRTxt();
-            isAdded = true;
+            isAddedGood = true;
         }
 
         private void btnDelGood_Click(object sender, EventArgs e)
@@ -145,21 +171,21 @@ namespace SE_Final
 
             dr[0] = id;
             dr[1] = name;
-            dr[3] = Int32.Parse(quantity);
-            dr[2] = Int32.Parse(price);
+            dr[2] = Int32.Parse(quantity);
+            dr[3] = Int32.Parse(price);
 
-            if (isAdded)
+            if (isAddedGood)
             {
                 tbGood.Rows.Add(dr);
-                isAdded = false;
+                isAddedGood = false;
             } else
             {
                 int index = grdGIRGood.CurrentRow.Index;
 
                 tbGood.Rows[index][0] = id;
                 tbGood.Rows[index][1] = name;
-                tbGood.Rows[index][2] = price;
-                tbGood.Rows[index][3] = quantity;
+                tbGood.Rows[index][2] = quantity;
+                tbGood.Rows[index][3] = price;
             }
             updateGIRGoodGrd();
             btnSaveGood.Enabled = false;
@@ -195,16 +221,148 @@ namespace SE_Final
         private void grdGIRGood_Click(object sender, EventArgs e)
         {
             btnDelGood.Enabled = true;
+            isAddedGood = false;
 
             txtGIRGoodID.Text = grdGIRGood.CurrentRow.Cells[0].Value.ToString();
             txtGIRGoodName.Text = grdGIRGood.CurrentRow.Cells[1].Value.ToString();
-            txtGIRGoodPrice.Text = grdGIRGood.CurrentRow.Cells[2].Value.ToString() ;
-            numGIRQuantity.Text = grdGIRGood.CurrentRow.Cells[3].Value.ToString() ;
+            numGIRQuantity.Text = grdGIRGood.CurrentRow.Cells[2].Value.ToString();
+            txtGIRGoodPrice.Text = grdGIRGood.CurrentRow.Cells[3].Value.ToString();
         }
 
-        private void tabGIR_Click(object sender, EventArgs e)
+        private void btnSaveRecord_Click(object sender, EventArgs e)
         {
+            BUS_GoodImportReceipt gir = new BUS_GoodImportReceipt(txtGIRReceiptID.Text, dpGIRImport.Value, txtGIREmpID.Text);
 
+            if (isAddedRecord)
+            {
+                gir.addQuery();
+                foreach (DataRow row in tbGood.Rows)
+                {
+                    BUS_Good good = new BUS_Good(row[0].ToString(), row[1].ToString(), Int32.Parse(row[2].ToString()), Int32.Parse(row[3].ToString()));
+                    good.addQuery();
+
+                    BUS_GoodReceipt gr = new BUS_GoodReceipt(row[0].ToString(), txtGIRReceiptID.Text, Int32.Parse(row[2].ToString()));
+                    gr.addQuery();
+                }
+                isAddedRecord = false;
+            }
+            else
+            {
+                gir.updateQuery();
+                foreach (DataRow row in tbGood.Rows)
+                {
+                    BUS_Good good = new BUS_Good(row[0].ToString(), row[1].ToString(), Int32.Parse(row[2].ToString()), Int32.Parse(row[3].ToString()));
+                    good.updateQuery();
+
+                    BUS_GoodReceipt gr = new BUS_GoodReceipt(row[0].ToString(), txtGIRReceiptID.Text, Int32.Parse(row[2].ToString()));
+                    gr.updateQuery();
+                }
+            }
+            
+
+            tbRecord = gir.selectQuery();
+            updateGIRRecordGrd();
+            btnSaveGood.Enabled = false;
+        }
+
+        private void grdGIRRecord_Click(object sender, EventArgs e)
+        {
+            btnSaveRecord.Enabled = true;
+            btnAddGood.Enabled = true;
+            btnDelGood.Enabled = true;
+
+            isAddedRecord = false;
+            enableGIRTxt();
+
+            if (grdGIRRecord.CurrentRow.Index == grdGIRRecord.Rows.Count - 1)
+            {
+                tbGood.Clear();
+                updateGIRGoodGrd();
+                return;
+            }
+
+            txtGIRReceiptID.Text = grdGIRRecord.CurrentRow.Cells[0].Value.ToString();
+            dpGIRImport.Value = DateTime.Parse(grdGIRRecord.CurrentRow.Cells[1].Value.ToString());
+            txtGIREmpID.Text = grdGIRRecord.CurrentRow.Cells[2].Value.ToString();
+
+            BUS_GoodImportReceipt gir = new BUS_GoodImportReceipt("", DateTime.Now, "");
+
+            DataTable tb = gir.detailQuery();
+            DataRow[] rows = tb.Select("ReceiptID = '" + grdGIRRecord.CurrentRow.Cells[0].Value.ToString() + "'");
+            tbGood.Rows.Clear();
+
+            foreach (DataRow row in rows)
+            {
+                DataRow dr = tbGood.NewRow();
+                dr[0] = row["GoodID"].ToString();
+                dr[1] = row["GoodName"].ToString();
+                dr[2] = Int32.Parse(row["Quantity"].ToString());
+                dr[3] = Int32.Parse(row["Price"].ToString());
+                
+
+                tbGood.Rows.Add(dr);
+            }
+
+            updateGIRGoodGrd();
+        }
+
+        private void btnDelRecord_Click(object sender, EventArgs e)
+        {
+            BUS_GoodImportReceipt gir = new BUS_GoodImportReceipt(txtGIRReceiptID.Text, dpGIRImport.Value, txtGIREmpID.Text);
+            foreach (DataRow row in tbGood.Rows)
+            {
+                BUS_Good good = new BUS_Good(row[0].ToString(), row[1].ToString(), Int32.Parse(row[2].ToString()), Int32.Parse(row[3].ToString()));
+                good.deleteQuery();
+
+                BUS_GoodReceipt gr = new BUS_GoodReceipt(row[0].ToString(), txtGIRReceiptID.Text, Int32.Parse(row[2].ToString()));
+                gr.deleteQuery();
+            }
+            gir.deleteQuery();
+
+            txtGIRReceiptID.Text = "";
+            txtGIREmpID.Text = "";
+            dpGIRImport.Value = DateTime.Now;
+            txtGIRGoodID.Text = "";
+            txtGIRGoodName.Text = "";
+            txtGIRGoodPrice.Text = "";
+            numGIRQuantity.Value = 0;
+        }
+
+        private void btnResellerAdd_Click(object sender, EventArgs e)
+        {
+            string id = txtResellerID.Text;
+            string name = txtResellerName.Text;
+            string address = txtResellerAddress.Text;
+            string username = txtResellerUser.Text;
+            string pass = txtResellerPass.Text;
+
+            BUS_Reseller res = new BUS_Reseller(id, name, address, username, pass);
+            res.addQuery();
+
+            txtResellerID.Text = generateResellerID();
+            tbReseller = res.selectQuery();
+            updateResellerGrd();
+        }
+
+        private void btnResellerDelete_Click(object sender, EventArgs e)
+        {
+            string id = grdReseller.CurrentRow.Cells[0].Value.ToString();
+            BUS_Reseller res = new BUS_Reseller(id, "", "", "", "");
+            res.deleteQuery();
+
+            txtResellerID.Text = generateResellerID();
+            tbReseller = res.selectQuery();
+            updateResellerGrd();
+
+            txtResellerName.Text = "";
+            txtResellerAddress.Text = "";
+            txtResellerUser.Text = "";
+            txtResellerPass.Text = "";
+        }
+
+        private void grdReseller_Click(object sender, EventArgs e)
+        {
+            btnResellerDelete.Enabled = true;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace BUS
             emp.addQuery();
         }
 
-        public void updateQuere()
+        public void updateQuery()
         {
             emp.updateQuery();
         }

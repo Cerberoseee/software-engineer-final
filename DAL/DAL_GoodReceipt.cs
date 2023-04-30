@@ -19,11 +19,24 @@ namespace DAL
 
         public void addQuery()
         {
-            string sql = "insert into GoodReceipt values (" +
-                "'" + gr._GOODID + "', " +
-                "'" + gr._RECEIPTID + "', " +
-                " " + gr._QUANTITY + " " +
-                ")";
+            DataTable dt = this.selectQuery();
+
+            DataRow[] rows = dt.Select("GoodID = '" + gr._GOODID + "' and ReceiptID = '" + gr._RECEIPTID + "'");
+            string sql;
+            if (rows.Length != 0)
+            {
+                sql = "update GoodReceipt set " +
+                "Quantity = " + (Int32.Parse(rows[0]["Quantity"].ToString()) + gr._QUANTITY) + " " +
+                "where GoodID = '" + gr._GOODID + "' and ReceiptID = '" + gr._RECEIPTID + "'";
+            }
+            else
+            {
+                sql = "insert into GoodReceipt values (" +
+                   "'" + gr._GOODID + "', " +
+                   "'" + gr._RECEIPTID + "', " +
+                   " " + gr._QUANTITY + " " +
+                   ")";
+            }
             Connection.actionQuery(sql);
         }
 
@@ -41,6 +54,11 @@ namespace DAL
             Connection.actionQuery(sql);
         }
 
+        public DataTable detailQuery()
+        {
+            string sql = "select * from GoodReceipt GR join Good G on GR.GoodID = G.GoodID where ReceiptID = '" + gr._RECEIPTID + "'" ;
+            return Connection.selectQuery(sql);
+        }
         public DataTable selectQuery()
         {
             string sql = "select * from GoodReceipt";

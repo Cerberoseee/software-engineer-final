@@ -44,7 +44,7 @@ namespace DAL
 
         public DataTable detailQuery()
         {
-            string sql = "select * from GoodImportedReceipt GIR join GoodReceipt GR on GIR.ReceiptID = GR.ReceiptID";
+            string sql = "select * from GoodImportedReceipt GIR join GoodReceipt GR on GIR.ReceiptID = GR.ReceiptID join Good G on GR.GoodID = G.GoodID";
             return Connection.selectQuery(sql);
         }
 

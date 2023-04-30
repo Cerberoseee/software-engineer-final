@@ -22,7 +22,7 @@ namespace BUS
             gir.addQuery();
         }
 
-        public void updateQuere()
+        public void updateQuery()
         {
             gir.updateQuery();
         }

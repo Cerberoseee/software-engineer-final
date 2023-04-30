@@ -21,7 +21,7 @@ namespace BUS
             dor.addQuery();
         }
 
-        public void updateQuere()
+        public void updateQuery()
         {
             dor.updateQuery();
         }

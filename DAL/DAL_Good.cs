@@ -53,9 +53,29 @@ namespace DAL
             Connection.actionQuery(sql);
         }
 
+        public void updateQuantityQuery()
+        {
+            string sql = "update Good set " +
+                "Quantity = " + g._QUANTITY + " " +
+                "where GoodID = '" + g._GOODID + "'";
+            Connection.actionQuery(sql);
+        }
+
         public void removeQuery()
         {
-            string sql = "delete from Good where GoodID = '" + g._GOODID + "'";
+            DataTable dt = this.selectQuery();
+
+            DataRow[] rows = dt.Select("GoodID = '" + g._GOODID + "'");
+            string sql;
+            if (Int32.Parse(rows[0]["Quantity"].ToString()) - g._QUANTITY == 0)
+            {
+                sql = "delete from Good where GoodID = '" + g._GOODID + "'";
+            } else
+            {
+                sql = "update Good set " +
+                "Quantity = " + (Int32.Parse(rows[0]["Quantity"].ToString()) - g._QUANTITY).ToString() + " " +
+                "where GoodID = '" + g._GOODID + "'";
+            }
             Connection.actionQuery(sql);
         }
 

@@ -21,7 +21,7 @@ namespace BUS
             dn.addQuery();
         }
 
-        public void updateQuere()
+        public void updateQuery()
         {
             dn.updateQuery();
         }

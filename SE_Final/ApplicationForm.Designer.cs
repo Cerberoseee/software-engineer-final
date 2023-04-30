@@ -57,6 +57,19 @@
             this.grdGIRGood = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.grdReseller = new System.Windows.Forms.DataGridView();
+            this.btnResellerDelete = new System.Windows.Forms.Button();
+            this.btnResellerAdd = new System.Windows.Forms.Button();
+            this.txtResellerPass = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtResellerUser = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtResellerAddress = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtResellerName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtResellerID = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabGIR.SuspendLayout();
             this.grpGIRText.SuspendLayout();
             this.grpGIRBtn.SuspendLayout();
@@ -64,6 +77,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdGIRRecord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGIRGood)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdReseller)).BeginInit();
             this.SuspendLayout();
             // 
             // tabGIR
@@ -81,12 +96,11 @@
             this.tabGIR.TabIndex = 1;
             this.tabGIR.Text = "Good Import Receipt";
             this.tabGIR.UseVisualStyleBackColor = true;
-            this.tabGIR.Click += new System.EventHandler(this.tabGIR_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(574, 236);
+            this.label9.Location = new System.Drawing.Point(15, 236);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(119, 20);
             this.label9.TabIndex = 21;
@@ -95,7 +109,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 236);
+            this.label8.Location = new System.Drawing.Point(595, 236);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(182, 20);
             this.label8.TabIndex = 20;
@@ -134,28 +148,29 @@
             this.grpGIRBtn.Controls.Add(this.btnDelGood);
             this.grpGIRBtn.Controls.Add(this.btnSaveGood);
             this.grpGIRBtn.Controls.Add(this.btnAddGood);
-            this.grpGIRBtn.Location = new System.Drawing.Point(754, 54);
+            this.grpGIRBtn.Location = new System.Drawing.Point(754, 43);
             this.grpGIRBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grpGIRBtn.Name = "grpGIRBtn";
             this.grpGIRBtn.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpGIRBtn.Size = new System.Drawing.Size(371, 145);
+            this.grpGIRBtn.Size = new System.Drawing.Size(371, 156);
             this.grpGIRBtn.TabIndex = 21;
             this.grpGIRBtn.TabStop = false;
             this.grpGIRBtn.Text = "Functions";
             // 
             // btnDelRecord
             // 
-            this.btnDelRecord.Location = new System.Drawing.Point(246, 69);
+            this.btnDelRecord.Location = new System.Drawing.Point(246, 79);
             this.btnDelRecord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelRecord.Name = "btnDelRecord";
-            this.btnDelRecord.Size = new System.Drawing.Size(110, 58);
+            this.btnDelRecord.Size = new System.Drawing.Size(110, 62);
             this.btnDelRecord.TabIndex = 19;
             this.btnDelRecord.Text = "Delete Record";
             this.btnDelRecord.UseVisualStyleBackColor = true;
+            this.btnDelRecord.Click += new System.EventHandler(this.btnDelRecord_Click);
             // 
             // btnCreateRecord
             // 
-            this.btnCreateRecord.Location = new System.Drawing.Point(6, 66);
+            this.btnCreateRecord.Location = new System.Drawing.Point(6, 79);
             this.btnCreateRecord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCreateRecord.Name = "btnCreateRecord";
             this.btnCreateRecord.Size = new System.Drawing.Size(105, 62);
@@ -166,17 +181,18 @@
             // 
             // btnSaveRecord
             // 
-            this.btnSaveRecord.Location = new System.Drawing.Point(120, 69);
+            this.btnSaveRecord.Location = new System.Drawing.Point(121, 79);
             this.btnSaveRecord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSaveRecord.Name = "btnSaveRecord";
-            this.btnSaveRecord.Size = new System.Drawing.Size(117, 58);
+            this.btnSaveRecord.Size = new System.Drawing.Size(117, 62);
             this.btnSaveRecord.TabIndex = 3;
             this.btnSaveRecord.Text = "Save Record";
             this.btnSaveRecord.UseVisualStyleBackColor = true;
+            this.btnSaveRecord.Click += new System.EventHandler(this.btnSaveRecord_Click);
             // 
             // btnDelGood
             // 
-            this.btnDelGood.Location = new System.Drawing.Point(243, 17);
+            this.btnDelGood.Location = new System.Drawing.Point(244, 27);
             this.btnDelGood.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelGood.Name = "btnDelGood";
             this.btnDelGood.Size = new System.Drawing.Size(112, 42);
@@ -187,7 +203,7 @@
             // 
             // btnSaveGood
             // 
-            this.btnSaveGood.Location = new System.Drawing.Point(120, 17);
+            this.btnSaveGood.Location = new System.Drawing.Point(121, 27);
             this.btnSaveGood.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSaveGood.Name = "btnSaveGood";
             this.btnSaveGood.Size = new System.Drawing.Size(117, 42);
@@ -198,7 +214,7 @@
             // 
             // btnAddGood
             // 
-            this.btnAddGood.Location = new System.Drawing.Point(6, 17);
+            this.btnAddGood.Location = new System.Drawing.Point(7, 27);
             this.btnAddGood.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddGood.Name = "btnAddGood";
             this.btnAddGood.Size = new System.Drawing.Size(105, 42);
@@ -337,17 +353,18 @@
             // grdGIRRecord
             // 
             this.grdGIRRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdGIRRecord.Location = new System.Drawing.Point(578, 261);
+            this.grdGIRRecord.Location = new System.Drawing.Point(19, 273);
             this.grdGIRRecord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grdGIRRecord.Name = "grdGIRRecord";
             this.grdGIRRecord.RowHeadersWidth = 62;
             this.grdGIRRecord.Size = new System.Drawing.Size(564, 484);
             this.grdGIRRecord.TabIndex = 16;
+            this.grdGIRRecord.Click += new System.EventHandler(this.grdGIRRecord_Click);
             // 
             // grdGIRGood
             // 
             this.grdGIRGood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdGIRGood.Location = new System.Drawing.Point(16, 261);
+            this.grdGIRGood.Location = new System.Drawing.Point(599, 273);
             this.grdGIRGood.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grdGIRGood.Name = "grdGIRGood";
             this.grdGIRGood.RowHeadersWidth = 62;
@@ -368,14 +385,138 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.grdReseller);
+            this.tabPage1.Controls.Add(this.btnResellerDelete);
+            this.tabPage1.Controls.Add(this.btnResellerAdd);
+            this.tabPage1.Controls.Add(this.txtResellerPass);
+            this.tabPage1.Controls.Add(this.label14);
+            this.tabPage1.Controls.Add(this.txtResellerUser);
+            this.tabPage1.Controls.Add(this.label13);
+            this.tabPage1.Controls.Add(this.txtResellerAddress);
+            this.tabPage1.Controls.Add(this.label12);
+            this.tabPage1.Controls.Add(this.txtResellerName);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.txtResellerID);
+            this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Size = new System.Drawing.Size(1150, 779);
             this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Reseller/Agent Address";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // grdReseller
+            // 
+            this.grdReseller.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdReseller.Location = new System.Drawing.Point(11, 190);
+            this.grdReseller.Name = "grdReseller";
+            this.grdReseller.RowHeadersWidth = 62;
+            this.grdReseller.RowTemplate.Height = 28;
+            this.grdReseller.Size = new System.Drawing.Size(1132, 581);
+            this.grdReseller.TabIndex = 12;
+            this.grdReseller.Click += new System.EventHandler(this.grdReseller_Click);
+            // 
+            // btnResellerDelete
+            // 
+            this.btnResellerDelete.Location = new System.Drawing.Point(838, 115);
+            this.btnResellerDelete.Name = "btnResellerDelete";
+            this.btnResellerDelete.Size = new System.Drawing.Size(151, 55);
+            this.btnResellerDelete.TabIndex = 11;
+            this.btnResellerDelete.Text = "Delete";
+            this.btnResellerDelete.UseVisualStyleBackColor = true;
+            this.btnResellerDelete.Click += new System.EventHandler(this.btnResellerDelete_Click);
+            // 
+            // btnResellerAdd
+            // 
+            this.btnResellerAdd.Location = new System.Drawing.Point(643, 115);
+            this.btnResellerAdd.Name = "btnResellerAdd";
+            this.btnResellerAdd.Size = new System.Drawing.Size(151, 55);
+            this.btnResellerAdd.TabIndex = 10;
+            this.btnResellerAdd.Text = "Add";
+            this.btnResellerAdd.UseVisualStyleBackColor = true;
+            this.btnResellerAdd.Click += new System.EventHandler(this.btnResellerAdd_Click);
+            // 
+            // txtResellerPass
+            // 
+            this.txtResellerPass.Location = new System.Drawing.Point(812, 67);
+            this.txtResellerPass.Name = "txtResellerPass";
+            this.txtResellerPass.Size = new System.Drawing.Size(287, 26);
+            this.txtResellerPass.TabIndex = 9;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(613, 70);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 20);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Password";
+            // 
+            // txtResellerUser
+            // 
+            this.txtResellerUser.Location = new System.Drawing.Point(812, 17);
+            this.txtResellerUser.Name = "txtResellerUser";
+            this.txtResellerUser.Size = new System.Drawing.Size(287, 26);
+            this.txtResellerUser.TabIndex = 7;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(613, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(83, 20);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Username";
+            // 
+            // txtResellerAddress
+            // 
+            this.txtResellerAddress.Location = new System.Drawing.Point(206, 115);
+            this.txtResellerAddress.Name = "txtResellerAddress";
+            this.txtResellerAddress.Size = new System.Drawing.Size(287, 26);
+            this.txtResellerAddress.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 118);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(177, 20);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Reseller/Agent Address";
+            // 
+            // txtResellerName
+            // 
+            this.txtResellerName.Location = new System.Drawing.Point(206, 64);
+            this.txtResellerName.Name = "txtResellerName";
+            this.txtResellerName.Size = new System.Drawing.Size(287, 26);
+            this.txtResellerName.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 67);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(160, 20);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Reseller/Agent Name";
+            // 
+            // txtResellerID
+            // 
+            this.txtResellerID.Location = new System.Drawing.Point(206, 14);
+            this.txtResellerID.Name = "txtResellerID";
+            this.txtResellerID.Size = new System.Drawing.Size(287, 26);
+            this.txtResellerID.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 17);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(135, 20);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Reseller/Agent ID";
             // 
             // ApplicationForm
             // 
@@ -397,6 +538,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdGIRRecord)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGIRGood)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdReseller)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -432,5 +576,18 @@
         private System.Windows.Forms.GroupBox grpGIRBtn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtResellerPass;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtResellerUser;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtResellerAddress;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtResellerName;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtResellerID;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView grdReseller;
+        private System.Windows.Forms.Button btnResellerDelete;
+        private System.Windows.Forms.Button btnResellerAdd;
     }
 }

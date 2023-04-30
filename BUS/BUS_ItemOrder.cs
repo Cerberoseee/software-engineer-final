@@ -22,7 +22,7 @@ namespace BUS
             io.addQuery();
         }
 
-        public void updateQuere()
+        public void updateQuery()
         {
             io.updateQuery();
         }

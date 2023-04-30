@@ -1,0 +1,26 @@
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\SE_Final.exe.config
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\SE_Final.exe
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\SE_Final.pdb
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\BUS.dll
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\DAL.dll
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\DTU.dll
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\BUS.pdb
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\DAL.pdb
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\DTU.pdb
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\obj\Debug\Staff (Winform).csproj.AssemblyReference.cache
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\obj\Debug\Staff (Winform).csproj.SuggestedBindingRedirects.cache
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\obj\Debug\SE_Final.ApplicationForm.resources
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\obj\Debug\SE_Final.LoginForm.resources
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\obj\Debug\SE_Final.Properties.Resources.resources
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\obj\Debug\Staff (Winform).csproj.GenerateResource.cache
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\obj\Debug\Staff (Winform).csproj.CoreCompileInputs.cache
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\obj\Debug\Staff (Winform).csproj.CopyComplete
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\obj\Debug\SE_Final.exe
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\obj\Debug\SE_Final.pdb
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\Staff (WebForm).dll
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\System.Web.Optimization.dll
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\Microsoft.AspNet.FriendlyUrls.dll
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\Staff (WebForm).pdb
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\Staff (WebForm).dll.config
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\System.Web.Optimization.xml
+E:\Learning\SoftwareEngineer\SE_Final\SE_Final\bin\Debug\Microsoft.AspNet.FriendlyUrls.xml

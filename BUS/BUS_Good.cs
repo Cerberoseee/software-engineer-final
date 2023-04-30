@@ -21,9 +21,14 @@ namespace BUS
             g.addQuery();
         }
 
-        public void updateQuere()
+        public void updateQuery()
         {
             g.updateQuery();
+        }
+
+        public void updateQuantityQuery()
+        {
+            g.updateQuantityQuery();
         }
 
         public void deleteQuery()

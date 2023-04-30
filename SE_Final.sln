@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI (Winform)", "SE_Final\GUI (Winform).csproj", "{79ABBA3E-8097-43D3-9B8E-0CFA87876C39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staff (Winform)", "SE_Final\Staff (Winform).csproj", "{79ABBA3E-8097-43D3-9B8E-0CFA87876C39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{CFA42F3F-AB06-4717-AB3F-13568558363B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTU\DTO.csproj", "{413A81FC-6F61-4D32-A1F7-058CF7DD873C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS", "BUS\BUS.csproj", "{45139B1D-8307-4109-A37E-1C4358BEA858}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staff (WebForm)", "Staff (WebForm)\Staff (WebForm).csproj", "{BB44D3F8-AAB3-4BC5-8159-29FEC79AD938}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reseller (Webform)", "Reseller (Webform)\Reseller (Webform).csproj", "{01639E25-0880-4E99-B8CC-5C84C8F34EAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{45139B1D-8307-4109-A37E-1C4358BEA858}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45139B1D-8307-4109-A37E-1C4358BEA858}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45139B1D-8307-4109-A37E-1C4358BEA858}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB44D3F8-AAB3-4BC5-8159-29FEC79AD938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB44D3F8-AAB3-4BC5-8159-29FEC79AD938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB44D3F8-AAB3-4BC5-8159-29FEC79AD938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB44D3F8-AAB3-4BC5-8159-29FEC79AD938}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01639E25-0880-4E99-B8CC-5C84C8F34EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01639E25-0880-4E99-B8CC-5C84C8F34EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01639E25-0880-4E99-B8CC-5C84C8F34EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01639E25-0880-4E99-B8CC-5C84C8F34EAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

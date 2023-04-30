@@ -1,0 +1,80 @@
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Reseller (Webform).dll.config
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Reseller (Webform).dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Reseller (Webform).pdb
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\csc.exe
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\csc.exe.config
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\csc.rsp
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\csi.exe
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\csi.exe.config
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\csi.rsp
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.AppContext.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Collections.Immutable.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Console.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Globalization.Calendars.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.IO.Compression.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.IO.FileSystem.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Net.Http.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Net.Sockets.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Reflection.Metadata.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.ValueTuple.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Xml.XPath.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\vbc.exe
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\vbc.exe.config
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\vbc.rsp
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\VBCSCompiler.exe
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\roslyn\VBCSCompiler.exe.config
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Antlr3.Runtime.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\AspNet.ScriptManager.bootstrap.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\AspNet.ScriptManager.jQuery.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Microsoft.ScriptManager.MSAjax.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Microsoft.ScriptManager.WebForms.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Microsoft.Web.Infrastructure.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Newtonsoft.Json.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\System.Web.Optimization.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\WebGrease.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\System.Web.Optimization.xml
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Newtonsoft.Json.xml
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Antlr3.Runtime.pdb
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\obj\Debug\Reseller (Webform).csproj.AssemblyReference.cache
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\obj\Debug\Reseller (Webform).csproj.CoreCompileInputs.cache
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\obj\Debug\Reseller (Webform).csproj.CopyComplete
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\obj\Debug\Reseller (Webform).dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\obj\Debug\Reseller (Webform).pdb
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\BUS.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\DAL.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\DTU.dll
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\BUS.pdb
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\DAL.pdb
+E:\Learning\SoftwareEngineer\SE_Final\Reseller (Webform)\bin\DTU.pdb
