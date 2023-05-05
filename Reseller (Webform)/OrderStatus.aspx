@@ -2,9 +2,27 @@
 
 <!DOCTYPE html>
 
+<style>
+    a {
+        text-decoration: none;
+        color: white;
+        margin-top: 12px;
+        border-radius: 8px;
+        padding: 12px 6px;
+        background: #1960d0;
+        width: fit-content;
+        transition: 0.3s;
+        display: block;
+    }
+    a:hover {
+        transform: scale(1.05);
+        transition: 0.3s;
+    }
+</style>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Order Status</title>
 </head>
 <body>
     <form id="form1" runat="server">

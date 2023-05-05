@@ -1,4 +1,6 @@
-﻿namespace SE_Final
+﻿using System;
+
+namespace SE_Final
 {
     partial class ApplicationForm
     {
@@ -28,6 +30,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.sEFinalDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabGIR = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -70,6 +75,36 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtResellerID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rpvReport = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.btnGetReport = new System.Windows.Forms.Button();
+            this.dpReportNow = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.GoodImportedReceiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.GoodReceiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtGDNNoteID = new System.Windows.Forms.TextBox();
+            this.txtGDNResellerID = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtGDNAddress = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtGDNOrderID = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dpGDNDate = new System.Windows.Forms.DateTimePicker();
+            this.btnGDNAdd = new System.Windows.Forms.Button();
+            this.btnGDNDel = new System.Windows.Forms.Button();
+            this.btnGDNSave = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtGDNOrderStatus = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnGDNSaveStatus = new System.Windows.Forms.Button();
+            this.grdGDN = new System.Windows.Forms.DataGridView();
+            this.grdGDNOrder = new System.Windows.Forms.DataGridView();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.sEFinalDataSetBindingSource)).BeginInit();
             this.tabGIR.SuspendLayout();
             this.grpGIRText.SuspendLayout();
             this.grpGIRBtn.SuspendLayout();
@@ -79,6 +114,13 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdReseller)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GoodImportedReceiptBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GoodReceiptBindingSource)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdGDN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdGDNOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // tabGIR
@@ -102,18 +144,18 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(15, 236);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 20);
+            this.label9.Size = new System.Drawing.Size(122, 20);
             this.label9.TabIndex = 21;
-            this.label9.Text = "Records Listing";
+            this.label9.Text = "Receipts Listing";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(595, 236);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(182, 20);
+            this.label8.Size = new System.Drawing.Size(185, 20);
             this.label8.TabIndex = 20;
-            this.label8.Text = "Added Goods to Record";
+            this.label8.Text = "Added Goods to Receipt";
             // 
             // grpGIRText
             // 
@@ -164,7 +206,7 @@
             this.btnDelRecord.Name = "btnDelRecord";
             this.btnDelRecord.Size = new System.Drawing.Size(110, 62);
             this.btnDelRecord.TabIndex = 19;
-            this.btnDelRecord.Text = "Delete Record";
+            this.btnDelRecord.Text = "Delete Receipt";
             this.btnDelRecord.UseVisualStyleBackColor = true;
             this.btnDelRecord.Click += new System.EventHandler(this.btnDelRecord_Click);
             // 
@@ -175,7 +217,7 @@
             this.btnCreateRecord.Name = "btnCreateRecord";
             this.btnCreateRecord.Size = new System.Drawing.Size(105, 62);
             this.btnCreateRecord.TabIndex = 20;
-            this.btnCreateRecord.Text = "Create Record";
+            this.btnCreateRecord.Text = "Create Receipt";
             this.btnCreateRecord.UseVisualStyleBackColor = true;
             this.btnCreateRecord.Click += new System.EventHandler(this.btnCreateRecord_Click);
             // 
@@ -186,7 +228,7 @@
             this.btnSaveRecord.Name = "btnSaveRecord";
             this.btnSaveRecord.Size = new System.Drawing.Size(117, 62);
             this.btnSaveRecord.TabIndex = 3;
-            this.btnSaveRecord.Text = "Save Record";
+            this.btnSaveRecord.Text = "Save Receipt";
             this.btnSaveRecord.UseVisualStyleBackColor = true;
             this.btnSaveRecord.Click += new System.EventHandler(this.btnSaveRecord_Click);
             // 
@@ -376,11 +418,13 @@
             // 
             this.tabControl1.Controls.Add(this.tabGIR);
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(18, 18);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(18, 25);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1158, 812);
+            this.tabControl1.Size = new System.Drawing.Size(1158, 805);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -518,6 +562,272 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Reseller/Agent ID";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.rpvReport);
+            this.tabPage2.Controls.Add(this.btnGetReport);
+            this.tabPage2.Controls.Add(this.dpReportNow);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1150, 772);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Report";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // rpvReport
+            // 
+            reportDataSource6.Name = "DataSet1";
+            reportDataSource6.Value = this.sEFinalDataSetBindingSource;
+            this.rpvReport.LocalReport.DataSources.Add(reportDataSource6);
+            this.rpvReport.LocalReport.ReportEmbeddedResource = "SE_Final.Report.rdlc";
+            this.rpvReport.Location = new System.Drawing.Point(23, 63);
+            this.rpvReport.Name = "rpvReport";
+            this.rpvReport.ServerReport.BearerToken = null;
+            this.rpvReport.Size = new System.Drawing.Size(1111, 710);
+            this.rpvReport.TabIndex = 6;
+            // 
+            // btnGetReport
+            // 
+            this.btnGetReport.Location = new System.Drawing.Point(339, 10);
+            this.btnGetReport.Name = "btnGetReport";
+            this.btnGetReport.Size = new System.Drawing.Size(157, 47);
+            this.btnGetReport.TabIndex = 5;
+            this.btnGetReport.Text = "Get Report";
+            this.btnGetReport.UseVisualStyleBackColor = true;
+            this.btnGetReport.Click += new System.EventHandler(this.btnGetReport_Click);
+            // 
+            // dpReportNow
+            // 
+            this.dpReportNow.Location = new System.Drawing.Point(68, 20);
+            this.dpReportNow.Name = "dpReportNow";
+            this.dpReportNow.Size = new System.Drawing.Size(226, 26);
+            this.dpReportNow.TabIndex = 4;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(19, 23);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(43, 20);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Time";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label23);
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.grdGDNOrder);
+            this.tabPage3.Controls.Add(this.grdGDN);
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Controls.Add(this.btnGDNSave);
+            this.tabPage3.Controls.Add(this.btnGDNDel);
+            this.tabPage3.Controls.Add(this.btnGDNAdd);
+            this.tabPage3.Controls.Add(this.dpGDNDate);
+            this.tabPage3.Controls.Add(this.label20);
+            this.tabPage3.Controls.Add(this.txtGDNOrderID);
+            this.tabPage3.Controls.Add(this.label19);
+            this.tabPage3.Controls.Add(this.txtGDNAddress);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.txtGDNResellerID);
+            this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Controls.Add(this.txtGDNNoteID);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1150, 772);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "Good Delivery Note";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(28, 23);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(64, 20);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Note ID";
+            // 
+            // txtGDNNoteID
+            // 
+            this.txtGDNNoteID.Location = new System.Drawing.Point(177, 20);
+            this.txtGDNNoteID.Name = "txtGDNNoteID";
+            this.txtGDNNoteID.Size = new System.Drawing.Size(332, 26);
+            this.txtGDNNoteID.TabIndex = 1;
+            // 
+            // txtGDNResellerID
+            // 
+            this.txtGDNResellerID.Location = new System.Drawing.Point(177, 67);
+            this.txtGDNResellerID.Name = "txtGDNResellerID";
+            this.txtGDNResellerID.Size = new System.Drawing.Size(332, 26);
+            this.txtGDNResellerID.TabIndex = 3;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(28, 70);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(88, 20);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "Reseller ID";
+            // 
+            // txtGDNAddress
+            // 
+            this.txtGDNAddress.Location = new System.Drawing.Point(177, 117);
+            this.txtGDNAddress.Name = "txtGDNAddress";
+            this.txtGDNAddress.Size = new System.Drawing.Size(332, 26);
+            this.txtGDNAddress.TabIndex = 5;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(28, 120);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(127, 20);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Delivery Address";
+            // 
+            // txtGDNOrderID
+            // 
+            this.txtGDNOrderID.Location = new System.Drawing.Point(177, 169);
+            this.txtGDNOrderID.Name = "txtGDNOrderID";
+            this.txtGDNOrderID.Size = new System.Drawing.Size(332, 26);
+            this.txtGDNOrderID.TabIndex = 7;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(28, 172);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(70, 20);
+            this.label19.TabIndex = 6;
+            this.label19.Text = "Order ID";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(28, 226);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(103, 20);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "Delivery Date";
+            // 
+            // dpGDNDate
+            // 
+            this.dpGDNDate.Location = new System.Drawing.Point(177, 221);
+            this.dpGDNDate.Name = "dpGDNDate";
+            this.dpGDNDate.Size = new System.Drawing.Size(332, 26);
+            this.dpGDNDate.TabIndex = 9;
+            // 
+            // btnGDNAdd
+            // 
+            this.btnGDNAdd.Location = new System.Drawing.Point(614, 23);
+            this.btnGDNAdd.Name = "btnGDNAdd";
+            this.btnGDNAdd.Size = new System.Drawing.Size(132, 47);
+            this.btnGDNAdd.TabIndex = 10;
+            this.btnGDNAdd.Text = "Add Note";
+            this.btnGDNAdd.UseVisualStyleBackColor = true;
+            this.btnGDNAdd.Click += new System.EventHandler(this.btnGDNAdd_Click);
+            // 
+            // btnGDNDel
+            // 
+            this.btnGDNDel.Location = new System.Drawing.Point(787, 23);
+            this.btnGDNDel.Name = "btnGDNDel";
+            this.btnGDNDel.Size = new System.Drawing.Size(132, 47);
+            this.btnGDNDel.TabIndex = 11;
+            this.btnGDNDel.Text = "Delete Note";
+            this.btnGDNDel.UseVisualStyleBackColor = true;
+            this.btnGDNDel.Click += new System.EventHandler(this.btnGDNDel_Click);
+            // 
+            // btnGDNSave
+            // 
+            this.btnGDNSave.Location = new System.Drawing.Point(958, 23);
+            this.btnGDNSave.Name = "btnGDNSave";
+            this.btnGDNSave.Size = new System.Drawing.Size(132, 47);
+            this.btnGDNSave.TabIndex = 12;
+            this.btnGDNSave.Text = "Save Note";
+            this.btnGDNSave.UseVisualStyleBackColor = true;
+            this.btnGDNSave.Click += new System.EventHandler(this.btnGDNSave_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnGDNSaveStatus);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.txtGDNOrderStatus);
+            this.groupBox1.Location = new System.Drawing.Point(571, 94);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(554, 152);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Order Status Updating";
+            // 
+            // txtGDNOrderStatus
+            // 
+            this.txtGDNOrderStatus.Location = new System.Drawing.Point(136, 75);
+            this.txtGDNOrderStatus.Name = "txtGDNOrderStatus";
+            this.txtGDNOrderStatus.Size = new System.Drawing.Size(259, 26);
+            this.txtGDNOrderStatus.TabIndex = 0;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(18, 78);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(100, 20);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "Order Status";
+            // 
+            // btnGDNSaveStatus
+            // 
+            this.btnGDNSaveStatus.Location = new System.Drawing.Point(415, 35);
+            this.btnGDNSaveStatus.Name = "btnGDNSaveStatus";
+            this.btnGDNSaveStatus.Size = new System.Drawing.Size(122, 107);
+            this.btnGDNSaveStatus.TabIndex = 15;
+            this.btnGDNSaveStatus.Text = "Save";
+            this.btnGDNSaveStatus.UseVisualStyleBackColor = true;
+            // 
+            // grdGDN
+            // 
+            this.grdGDN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdGDN.Location = new System.Drawing.Point(32, 311);
+            this.grdGDN.Name = "grdGDN";
+            this.grdGDN.RowHeadersWidth = 62;
+            this.grdGDN.RowTemplate.Height = 28;
+            this.grdGDN.Size = new System.Drawing.Size(491, 439);
+            this.grdGDN.TabIndex = 14;
+            this.grdGDN.Click += new System.EventHandler(this.grdGDN_Click);
+            // 
+            // grdGDNOrder
+            // 
+            this.grdGDNOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdGDNOrder.Location = new System.Drawing.Point(571, 311);
+            this.grdGDNOrder.Name = "grdGDNOrder";
+            this.grdGDNOrder.RowHeadersWidth = 62;
+            this.grdGDNOrder.RowTemplate.Height = 28;
+            this.grdGDNOrder.Size = new System.Drawing.Size(554, 439);
+            this.grdGDNOrder.TabIndex = 15;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(28, 288);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(110, 20);
+            this.label22.TabIndex = 16;
+            this.label22.Text = "Delivery Notes";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(567, 288);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(57, 20);
+            this.label23.TabIndex = 17;
+            this.label23.Text = "Orders";
+            // 
             // ApplicationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -529,6 +839,7 @@
             this.Text = "Application";
             this.Load += new System.EventHandler(this.ApplicationForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ApplicationForm_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.sEFinalDataSetBindingSource)).EndInit();
             this.tabGIR.ResumeLayout(false);
             this.tabGIR.PerformLayout();
             this.grpGIRText.ResumeLayout(false);
@@ -541,6 +852,16 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdReseller)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GoodImportedReceiptBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GoodReceiptBindingSource)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdGDN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdGDNOrder)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -589,5 +910,35 @@
         private System.Windows.Forms.DataGridView grdReseller;
         private System.Windows.Forms.Button btnResellerDelete;
         private System.Windows.Forms.Button btnResellerAdd;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnGetReport;
+        private System.Windows.Forms.DateTimePicker dpReportNow;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.BindingSource sEFinalDataSetBindingSource;
+        private System.Windows.Forms.BindingSource GoodImportedReceiptBindingSource;
+        private System.Windows.Forms.BindingSource GoodReceiptBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer rpvReport;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox txtGDNOrderID;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtGDNAddress;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtGDNResellerID;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtGDNNoteID;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.DataGridView grdGDNOrder;
+        private System.Windows.Forms.DataGridView grdGDN;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnGDNSaveStatus;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtGDNOrderStatus;
+        private System.Windows.Forms.Button btnGDNSave;
+        private System.Windows.Forms.Button btnGDNDel;
+        private System.Windows.Forms.Button btnGDNAdd;
+        private System.Windows.Forms.DateTimePicker dpGDNDate;
+        private System.Windows.Forms.Label label20;
     }
 }

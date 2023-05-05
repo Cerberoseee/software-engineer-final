@@ -2,21 +2,30 @@
 
 <!DOCTYPE html>
 
+<style>
+    .form-control {
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        margin: 6px 0;
+    }
+</style>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
 </head>
 <body>
     <form id="Application" runat="server">
-        <div>
+        <div class="form-control">
             <label>Order ID</label>
             <asp:TextBox ID="txtOrderID" runat="server"></asp:TextBox>
         </div>
-        <div>
+        <div class="form-control">
             <label>Reseller ID</label>
             <asp:TextBox ID="txtResellerID" runat="server"></asp:TextBox>
         </div>
-        <div>
+        <div class="form-control"> 
             <label>Payment Method</label>
             <asp:DropDownList ID="dropPayment" runat="server">
                 <asp:ListItem Selected="True" Value="Cash"> Cash </asp:ListItem>
@@ -25,15 +34,15 @@
             </asp:DropDownList>
         </div>
         <div>
-            <div>
+            <div class="form-control">
                 <label>Good ID</label>
                 <asp:TextBox ID="txtItemID" runat="server"></asp:TextBox>
             </div>
-            <div>
+            <div class="form-control">
                 <label>Good Quantity</label>
                 <asp:TextBox ID="txtQuantity" TextMode="Number" Text="0" runat="server"></asp:TextBox>
             </div>
-            <div>
+            <div class="form-control">
                 <asp:Button ID="btnAddItem" runat="server" Text="Add Item" OnClick="btnAddItem_Click" />
                 <asp:Button ID="btnEditItem" runat="server" Text="Edit Item" OnClick="btnEditItem_Click" />
                 <asp:Button ID="btnDelItem" runat="server" Text="Delete Item" OnClick="btnDelItem_Click" />

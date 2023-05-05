@@ -1,11 +1,15 @@
 ﻿using BUS;
+using Microsoft.Reporting.WinForms;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,8 +22,12 @@ namespace SE_Final
         private DataTable tbRecord;
         private DataTable tbReseller;
 
+        private DataTable tbGDN;
+        private DataTable tbGDNOrder;
+
         private Boolean isAddedGood = false;
         private Boolean isAddedRecord = false;
+        private Boolean isAddedGDN = false;
 
         private string employeeID;
         public ApplicationForm(string empID)
@@ -78,6 +86,14 @@ namespace SE_Final
             return DateTime.Now.ToString("yyyyMMdd") + (tb.Rows.Count + 1).ToString().PadLeft(4, '0');
         }
 
+        private string generateNoteID()
+        {
+            BUS_DeliveryNote gir = new BUS_DeliveryNote("", "", "", DateTime.Now, "");
+
+            DataTable tb = gir.selectQuery();
+            return "DN" + DateTime.Now.ToString("yyyyMMdd") + (tb.Rows.Count + 1).ToString().PadLeft(4, '0');
+        }
+
         private string generateResellerID()
         {
             BUS_Reseller res = new BUS_Reseller("", "", "", "", "");
@@ -95,6 +111,16 @@ namespace SE_Final
             grdGIRRecord.DataSource = tbRecord;
         }
 
+        private void updateGDNGir()
+        {
+            grdGDN.DataSource = tbGDN;
+        }
+
+        private void updateGDNOrderGir()
+        {
+            grdGDNOrder.DataSource = tbGDNOrder;
+        }
+
         private void updateResellerGrd()
         {
             grdReseller.DataSource = tbReseller;
@@ -107,6 +133,7 @@ namespace SE_Final
             txtGIRReceiptID.ReadOnly = true;
             txtGIREmpID.ReadOnly = true;
             txtResellerID.ReadOnly = true;
+            txtGDNNoteID.ReadOnly = true;
 
             txtResellerID.Text = generateResellerID();
 
@@ -126,9 +153,28 @@ namespace SE_Final
             BUS_Reseller res = new BUS_Reseller("", "", "", "", "");
             tbReseller = res.selectQuery();
 
+            BUS_DeliveryNote dn = new BUS_DeliveryNote("", "", "", DateTime.Now, "");
+            tbGDN = dn.selectQuery();
+
+            BUS_ItemOrder io = new BUS_ItemOrder("", "", "", "", DateTime.Now);
+            tbGDNOrder = io.selectQuery();
+
+            rpvReport.Visible = false;
+
+            updateGDNGir();
+            updateGDNOrderGir();
             updateGIRGoodGrd();
             updateGIRRecordGrd();
             updateResellerGrd();
+            this.rpvReport.RefreshReport();
+
+            txtGDNNoteID.Enabled = false;
+            txtGDNResellerID.Enabled = false;
+            txtGDNOrderID.Enabled = false;
+            txtGDNAddress.Enabled = false;
+            dpGDNDate.Enabled = false;
+            txtGDNOrderStatus.Enabled = false;
+            btnGDNDel.Enabled = false;
         }
 
         private void btnCreateRecord_Click(object sender, EventArgs e)
@@ -363,6 +409,198 @@ namespace SE_Final
         private void grdReseller_Click(object sender, EventArgs e)
         {
             btnResellerDelete.Enabled = true;
+        }
+
+        private void btnGetReport_Click(object sender, EventArgs e)
+        {
+            BUS_GoodImportReceipt gir = new BUS_GoodImportReceipt("", DateTime.Now, "");
+            BUS_GoodReceipt gr = new BUS_GoodReceipt("", "", 0);
+            BUS_ItemOrder io = new BUS_ItemOrder("", "", "", "", DateTime.Now);
+            BUS_DetailOrder dor = new BUS_DetailOrder("", "", 0);
+            BUS_Good good = new BUS_Good("", "", 0, 0);
+
+            DateTime date = dpReportNow.Value;
+
+            DataTable tbGir = gir.selectQuery();
+            DataTable tbGr = gr.selectQuery();
+            DataTable tbIo = io.selectQuery();
+            DataTable tbDor = dor.selectQuery();
+            DataTable tbGood = good.selectQuery();
+
+            IEnumerable<DataRow> tb1 = (from p in tbGir.AsEnumerable()
+                                        join t in tbGr.AsEnumerable()
+                                        on p.Field<string>("ReceiptID") equals t.Field<string>("ReceiptID")
+                                        where p.Field<DateTime>("ImportDate").Month == date.Month && p.Field<DateTime>("ImportDate").Year == date.Year
+                                        select t
+                                        );
+            
+            DataTable dt1 = tbGood.Clone();
+            dt1.Rows.Clear();
+
+            if (tb1.Count() > 0 )
+            {
+                dt1 = tb1.CopyToDataTable<DataRow>();
+            }
+
+            var tb2 = (from p in tbIo.AsEnumerable()
+                       join t in tbDor.AsEnumerable()
+                       on p.Field<string>("OrderID") equals t.Field<string>("OrderID")
+                       where p.Field<DateTime>("CreatedDate").Month == date.Month && p.Field<DateTime>("CreatedDate").Year == date.Year
+                       group t by t.Field<string>("GoodID") into gt
+                       select new
+                       {
+                           GoodID = gt.ElementAt(0).Field<string>("GoodID"),
+                           Quantity = gt.Sum(t => t.Field<int>("Quantity"))
+                       }
+            );
+
+            DataTable dt2 = LinqToDataTable(tb2);
+
+            var tb3 = (from p in tbIo.AsEnumerable()
+                       join t in tbDor.AsEnumerable()
+                       on p.Field<string>("OrderID") equals t.Field<string>("OrderID")
+                       where p.Field<DateTime>("CreatedDate").Month == date.Month && p.Field<DateTime>("CreatedDate").Year == date.Year
+                       group t by t.Field<string>("GoodID") into gt
+                       orderby gt.Sum(t => t.Field<int>("Quantity")) descending
+                       select new
+                       {
+                           GoodID = gt.ElementAt(0).Field<string>("GoodID"),
+                           Quantity = gt.Sum(t => t.Field<int>("Quantity"))
+                       }
+           );
+
+            DataTable dt3 = LinqToDataTable(tb3);
+
+            var tb4 = (from p in tbIo.AsEnumerable()
+                       join t in tbDor.AsEnumerable()
+                       on p.Field<string>("OrderID") equals t.Field<string>("OrderID")
+                       where p.Field<DateTime>("CreatedDate").Month == date.Month && p.Field<DateTime>("CreatedDate").Year == date.Year
+                       group t by t.Field<string>("GoodID") into gt
+                       select new
+                       {
+                           GoodID = gt.ElementAt(0).Field<string>("GoodID"),
+                           Quantity = gt.Sum(t => t.Field<int>("Quantity")),
+                       }
+           );
+
+            var revenue = (from p in tb4.AsEnumerable()
+                           join t in tbGood.AsEnumerable()
+                           on p.GoodID equals t.Field<string>("GoodID") into rv
+                           select new
+                           {
+                               Revenue = rv.Sum(t => p.Quantity * t.Field<int>("Price"))
+                           }
+            ).AsEnumerable().Sum(x => x.Revenue); ;
+
+
+            grdGIRGood.DataSource = dt1;
+
+            rpvReport.Visible = true;
+            rpvReport.LocalReport.ReportPath = "../../Report.rdlc";
+            ReportDataSource rds1 = new ReportDataSource("DataSet1", dt1);
+            ReportDataSource rds2 = new ReportDataSource("DataSet2", dt2);
+            ReportDataSource rds3 = new ReportDataSource("DataSet3", dt3);
+            ReportParameter rev = new ReportParameter("Revenue", revenue.ToString() + " VND");
+
+            rpvReport.LocalReport.DataSources.Clear();
+
+            rpvReport.LocalReport.SetParameters(new ReportParameter[] { rev });
+            rpvReport.LocalReport.DataSources.Add(rds1);
+            rpvReport.LocalReport.DataSources.Add(rds2);
+            rpvReport.LocalReport.DataSources.Add(rds3);
+            rpvReport.LocalReport.Refresh();
+            rpvReport.RefreshReport();
+
+        }
+
+        private DataTable LinqToDataTable<T>(IEnumerable<T> items)
+        {
+            DataTable dt = new DataTable(typeof(T).Name);
+            PropertyInfo[] propInfos = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            foreach (PropertyInfo propInfo in propInfos)
+            {
+                dt.Columns.Add(new DataColumn(propInfo.Name, propInfo.PropertyType));
+            }
+
+            foreach (T item in items)
+            {
+                DataRow dr = dt.Rows.Add();
+
+                foreach (PropertyInfo propInfo in propInfos)
+                {
+                    dr[propInfo.Name] = propInfo.GetValue(item, null);
+                }
+            }
+
+            return dt;
+        }
+
+        private void btnGDNAdd_Click(object sender, EventArgs e)
+        {
+            txtGDNNoteID.Text = generateNoteID();
+
+            txtGDNResellerID.Enabled = true;
+            txtGDNOrderID.Enabled = true;
+            txtGDNAddress.Enabled = true;
+            dpGDNDate.Enabled = true;
+            btnGDNSave.Enabled = true;
+            isAddedGDN = true;
+        }
+
+        private void grdGDN_Click(object sender, EventArgs e)
+        {
+            txtGDNResellerID.Text = grdGDN.CurrentRow.Cells[1].Value.ToString();
+            txtGDNOrderID.Text = grdGDN.CurrentRow.Cells[2].Value.ToString();
+            dpGDNDate.Value = DateTime.Parse(grdGDN.CurrentRow.Cells[3].Value.ToString());
+            txtGDNAddress.Text = grdGDN.CurrentRow.Cells[4].Value.ToString();
+
+            btnGDNDel.Enabled = true;
+            txtGDNResellerID.Enabled = true;
+            txtGDNOrderID.Enabled = true;
+            txtGDNAddress.Enabled = true;
+            dpGDNDate.Enabled = true;
+            btnGDNSave.Enabled = true;
+        }
+
+        private void btnGDNDel_Click(object sender, EventArgs e)
+        {
+            string id = grdGDN.CurrentRow.Cells[0].Value.ToString();
+            BUS_DeliveryNote dn = new BUS_DeliveryNote(id, "", "", DateTime.Now, "");
+            dn.deleteQuery();
+
+            tbGDN = dn.selectQuery();
+            updateGDNGir();
+        }
+
+        private void btnGDNSave_Click(object sender, EventArgs e)
+        {
+            string id = txtGDNNoteID.Text;
+            string resellerId = txtGDNResellerID.Text;
+            string orderId = txtGDNOrderID.Text;
+            string address = txtGDNAddress.Text;
+            DateTime time = dpGDNDate.Value;
+            
+            BUS_DeliveryNote dn = new BUS_DeliveryNote(id, orderId, resellerId, time, address);
+
+            if (isAddedGDN)
+            {
+                dn.addQuery();
+            } else
+            {
+                dn.updateQuery();
+            }
+
+            tbGDN = dn.selectQuery();
+            updateGDNGir();
+            btnGDNSave.Enabled = false;
+            isAddedGDN = false;
+
+            txtGDNResellerID.Enabled = false;
+            txtGDNOrderID.Enabled = false;
+            txtGDNAddress.Enabled = false;
+            dpGDNDate.Enabled = false;
+            btnGDNSave.Enabled = false;
         }
     }
 }

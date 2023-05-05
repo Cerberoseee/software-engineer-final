@@ -229,10 +229,12 @@ namespace Reseller__Webform_
         protected void btnDelItem_Click(object sender, EventArgs e)
         {
             string id = txtItemID.Text;
-            int quantity = Int32.Parse(txtQuantity.Text);
+            int quantity = 0;
+
 
             DataRow[] row = tbGood.Select("GoodID = '" + id + "'");
             DataRow[] itemRow = tbAddedItem.Select("GoodID = '" + id + "'");
+
 
             if (itemRow.Length == 0)
             {
@@ -242,6 +244,7 @@ namespace Reseller__Webform_
             else
             {
                 errorNotFound.Visible = false;
+                quantity = Int32.Parse(itemRow[0]["Quantity"].ToString());
             }
 
             BUS_DetailOrder dor = new BUS_DetailOrder(txtOrderID.Text, id, quantity);

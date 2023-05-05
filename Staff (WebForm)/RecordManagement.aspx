@@ -1,14 +1,22 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RecordManagement.aspx.cs" Inherits="Staff__WebForm_.WebForm1" %>
 
 <!DOCTYPE html>
-
+<style>
+    .header-bar {
+        background: #D0D0D0;
+        padding: 12px;
+        display: flex;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+</style>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Record Management</title>
 </head>
 <body>
     <header>
-        <div>
+        <div class="header-bar">
             <a >Record Management</a>
             <a href="DeliveryManagement.aspx">Delivery Note Management</a>
         </div>
